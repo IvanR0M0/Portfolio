@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos los Proyectos | MiPortfolio</title>
+    <link rel="stylesheet" th:href="@{/style-principal.css}">
+    <link rel="stylesheet" th:href="@{/projects.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+<script th:src="@{/scripts.js}"></script>
+
+<header th:replace="~{fragments :: navbar}"></header>
+
+<main class="main-content">
+    <section class="section">
+        <div class="container">
+            <header class="projects-page-header">
+                <span class="section-subtitle">Explora mi trabajo</span>
+                <h1>Todos los proyectos</h1>
+            </header>
+
+            <div class="projects-grid">
+                <th:block th:each="p : ${projects}">
+                    <div th:replace="~{fragments :: projectCard(${p})}"></div>
+                </th:block>
+            </div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

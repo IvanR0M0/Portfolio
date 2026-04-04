@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="navbar" class="navbar">
+    <div class="container nav-container">
+        <div class="logo">Portfolio IRF</div>
+        <ul>
+            <li><a th:href="@{/#home}">Inicio</a></li>
+            <li><a th:href="@{/#about}">Sobre mí</a></li>
+            <li><a th:href="@{/#experience}">Experiencia</a></li>
+            <li><a th:href="@{/#projects}">Proyectos</a></li>
+            <li><a th:href="@{/#skills}">Tecnologías</a></li>
+            <li><a th:href="@{/#education}">Educación</a></li>
+            <li>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider"></div>
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+
+
+<div th:fragment="projectCard(p)" class="project-card" th:data-url="${p.link}">
+    <div class="project-image">
+        <img th:src="${p.ref_photo}" th:alt="'Captura de ' + ${p.title}" loading="lazy">
+    </div>
+
+    <div class="project-content">
+        <h3 th:text="${p.title}">Título del Proyecto</h3>
+
+        <div class="project-techs">
+            <span th:each="tech : ${p.technologies}"
+                  th:text="${tech}"
+                  class="tech-badge">
+            </span>
+        </div>
+
+        <p th:text="${p.desc_prj}">Descripción profesional del proyecto.</p>
+
+        <a th:href="${p.link}" class="github-link" target="_blank" rel="noopener noreferrer">
+            GitHub ↗
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+test/
+src/test/
+
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# --- DOCUMENTATION ---
+HELP.md
+
+# --- MAVEN ---
+.mvn/wrapper/maven-wrapper.jar
+
+### STS (Spring Tool Suite) ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+### OS General ###
+.DS_Store
+Thumbs.db

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio IRF</title>
+    <link rel="stylesheet" th:href="@{/style-principal.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+<header th:replace="~{fragments :: navbar}"></header>
+
+<main>
+
+    <section id="home" class="hero-section">
+        <div class="container hero-container">
+            <a href="cv.pdf" class="cv-badge">
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" width="16">
+                Descargar CV
+            </a>
+
+            <div class="hero-content">
+                <h1>Software Developer</h1>
+                <h2 class="hero-name">Iván Romo Fernández</h2>
+                <p class="hero-subtitle">Full Stack Developer</p>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="https://www.linkedin.com/in/iván-romo-fernández-a4935732b/" class="btn-hero linkedin">LinkedIn →</a>
+                <a href="https://github.com/IvanR0M0" class="btn-hero github">GitHub →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <span class="section-subtitle">Introducción</span>
+            <h2>Sobre mí</h2>
+            <p class="about-text">Profesional en el desarrollo de aplicaciones multiplataforma, con interés en ampliar mis conocimientos en ciberseguridad.
+                Actualmente busco nuevas oportunidades en el sector tecnológico donde seguir creciendo, aportar valor y explorar diferentes áreas de la informática.</p>
+        </div>
+    </section>
+
+    <section id="experience" class="section alt">
+        <div class="container">
+            <span class="section-subtitle">Trayectoria</span>
+            <h2>Experiencia laboral</h2>
+            <div class="card-grid">
+                <div class="card" th:each="exp : ${experiencias}">
+                    <span class="date" th:text="${exp.date_start} + ' — ' + ${exp.date_end}">
+                    2022 — Presente
+                </span>
+
+                    <h3 th:text="${exp.job_title}">Puesto de trabajo</h3>
+
+                    <p th:text="${exp.job_desc}">
+                        Descripción detallada de logros y responsabilidades.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projects" class="section alt">
+        <div class="container">
+            <div class="projects-header">
+                <div>
+                    <span class="section-subtitle">Proyectos</span>
+                    <h2>Proyectos</h2>
+                </div>
+                <a th:href="@{/projects}" class="btn-outline-projects">
+                    Ver todos los proyectos
+                    <span class="arrow-icon">→</span>
+                </a>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="arrow left" id="leftBtn" aria-label="Anterior">❮</button>
+
+                <div class="projects-carousel" id="carousel">
+                    <th:block th:each="p : ${project}">
+                        <div th:replace="~{fragments :: projectCard(${p})}"></div>
+                    </th:block>
+                </div>
+
+                <button class="arrow right" id="rightBtn" aria-label="Siguiente">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <span class="section-subtitle">Conocimientos</span>
+            <h2>Tecnologías</h2>
+            <div class="skills-grid">
+
+                <div class="skills-card">
+                    <h3>Frontend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"><span>HTML5</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"><span>CSS3</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"><span>JavaScript</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-card">
+                    <h3>Backend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring"><span>Spring Boot</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"><span>Oracle</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-card">
+                    <h3>Herramientas</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"><span>Docker</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins"><span>Jenkins</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-card">
+                    <h3>Aprendiendo</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeSript"><span>TypeScript</span></div>
+                        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" alt="Angular"><span>Angular</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <span class="section-subtitle">Formación</span>
+            <h2>Educación</h2>
+            <div class="card-grid">
+                <div class="card" th:each="edu : ${education}">
+                    <span class="date" th:text="${edu.date_start} + ' — ' + ${edu.date_end}">
+                    2018 — 2022
+                </span>
+                    <h3 th:text="${edu.educ_title}">Título académico</h3>
+                    <p th:text="${edu.educ_desc}">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script th:src="@{/scripts.js}"></script>
+
+</body>
+</html>
