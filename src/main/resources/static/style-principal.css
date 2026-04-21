@@ -705,3 +705,109 @@ body.dark-mode .skill-item img { filter: drop-shadow(0 0 2px rgba(255,255,255,0.
         margin-bottom: 0; /* Quitamos márgenes antiguos si los hubiera */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.project-card, .card, .skill-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover, .card:hover {
+    transform: translateY(-10px); /* El efecto que querías */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+/* --- 2. EDUCACIÓN (PC y Móvil): Separar tarjetas --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Aquí controlas la separación para ambos */
+    margin-top: 20px;
+}
+
+/* --- 3. NAVBAR: Arreglar el "fantasma" en PC --- */
+.mobile-menu-btn {
+    display: none; /* Escondido por defecto */
+}
+
+@media (min-width: 769px) {
+    .navbar ul {
+        display: flex !important; /* Asegura que se vea en PC */
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        flex-direction: row !important;
+    }
+}
+
+/* --- 4. SOLUCIONES ESPECÍFICAS PARA MÓVIL --- */
+@media (max-width: 768px) {
+    /* Navbar móvil corregida */
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    /* Centrado del Carrusel y Proyectos */
+    .carousel-wrapper {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+    }
+
+    .projects-carousel {
+        width: 100% !important;
+        display: flex;
+        gap: 15px;
+        padding: 20px 0;
+        scroll-behavior: smooth;
+        /* Centrado mágico: */
+        scroll-padding: 0 5%;
+        justify-content: flex-start;
+    }
+
+    .project-card {
+        flex: 0 0 85% !important; /* Ancho de la tarjeta */
+        min-width: 85% !important;
+        margin: 0 auto; /* Ayuda al centrado */
+        scroll-snap-align: center; /* La tarjeta se imanta al centro */
+    }
+
+    /* Flechas: Ahora flotan sobre la tarjeta sin romper el layout */
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        border: 2px solid white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .arrow.left { left: 5px; }
+    .arrow.right { right: 5px; }
+
+    /* Ajuste de Tecnologías (Una debajo de otra) */
+    .skills-grid {
+        grid-template-columns: 1fr !important;
+    }
+}

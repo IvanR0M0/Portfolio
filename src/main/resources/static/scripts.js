@@ -90,4 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pequeño timeout para asegurar que el DOM está renderizado antes de calcular flechas
         setTimeout(updateArrows, 100);
     }
+    // Si la ventana se hace grande, cerramos el menú móvil por si acaso
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            menu.classList.remove('active');
+        }
+    });
 });
