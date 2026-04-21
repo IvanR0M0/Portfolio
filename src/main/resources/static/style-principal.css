@@ -697,25 +697,17 @@ body.dark-mode .skill-item img { filter: drop-shadow(0 0 2px rgba(255,255,255,0.
     /* Esto aplica a todas las secciones que usen .card-grid */
     .card-grid {
         display: grid;
+        /* Forzamos una sola columna en cualquier tamaño de pantalla */
         grid-template-columns: 1fr;
-        gap: 20px !important; /* Espacio vertical entre tarjetas */
-    }
-
-    .card {
-        margin-bottom: 0; /* Quitamos márgenes antiguos si los hubiera */
+        /* El espacio (gap) entre las tarjetas */
+        gap: 24px;
+        margin-top: 20px;
+        /* Opcional: limitar el ancho máximo para que no se estiren demasiado en PC */
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .project-card, .card, .skill-item {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -727,18 +719,20 @@ body.dark-mode .skill-item img { filter: drop-shadow(0 0 2px rgba(255,255,255,0.
     border-color: var(--primary);
 }
 
-/* --- 2. EDUCACIÓN (PC y Móvil): Separar tarjetas --- */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Aquí controlas la separación para ambos */
-    margin-top: 20px;
+/* --- 2. EDUCACIÓN (Móvil): Separar tarjetas --- */
+
+@media (max-width: 768px) {
+    .card-grid {
+        gap: 16px;
+        max-width: 100%;
+    }
 }
 
 /* --- 3. NAVBAR: Arreglar el "fantasma" en PC --- */
 .mobile-menu-btn {
     display: none; /* Escondido por defecto */
 }
+
 
 @media (min-width: 769px) {
     .navbar ul {
