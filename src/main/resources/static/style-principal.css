@@ -641,3 +641,67 @@ body.dark-mode .skill-item img { filter: drop-shadow(0 0 2px rgba(255,255,255,0.
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 768px) {
+
+    /* --- TECNOLOGÍAS: Una debajo de otra --- */
+    .skills-grid {
+        grid-template-columns: 1fr !important; /* Fuerza una sola columna */
+        gap: 1.5rem;
+    }
+
+    .skills-card {
+        padding: 1.5rem;
+    }
+
+    /* --- PROYECTOS: Botón y Carrusel --- */
+    .projects-header {
+        flex-direction: column;
+        align-items: flex-start; /* Alinea a la izquierda en móvil */
+        gap: 1rem;
+    }
+
+    .btn-outline-projects {
+        padding: 8px 18px;
+        font-size: 0.85rem; /* Botón más pequeño y manejable */
+        width: auto;
+    }
+
+    .carousel-wrapper {
+        padding: 0 5px; /* Menos espacio lateral */
+    }
+
+    .projects-carousel {
+        gap: 15px;
+    }
+
+    .project-card {
+        flex: 0 0 90% !important; /* Casi todo el ancho para que se lea bien */
+        min-width: 90% !important;
+        min-height: auto !important;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Flechas más discretas para que no tapen el contenido */
+    .arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        background: rgba(37, 99, 235, 0.8); /* Un poco transparentes */
+    }
+
+    .arrow.left { left: -10px; }
+    .arrow.right { right: -10px; }
+
+    /* --- EDUCACIÓN Y EXPERIENCIA: Separar tarjetas --- */
+    /* Esto aplica a todas las secciones que usen .card-grid */
+    .card-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px !important; /* Espacio vertical entre tarjetas */
+    }
+
+    .card {
+        margin-bottom: 0; /* Quitamos márgenes antiguos si los hubiera */
+    }
+}
