@@ -5,7 +5,14 @@
 <header th:fragment="navbar" class="navbar">
     <div class="container nav-container">
         <div class="logo">Portfolio IRF</div>
-        <ul>
+
+        <button class="mobile-menu-btn" id="mobile-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul id="nav-menu">
             <li><a th:href="@{/#home}">Inicio</a></li>
             <li><a th:href="@{/#about}">Sobre mí</a></li>
             <li><a th:href="@{/#experience}">Experiencia</a></li>

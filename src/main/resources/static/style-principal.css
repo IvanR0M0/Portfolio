@@ -562,22 +562,82 @@ body.dark-mode .project-card:hover {
 body.dark-mode .skills-grid { background: transparent; }
 body.dark-mode .skill-item img { filter: drop-shadow(0 0 2px rgba(255,255,255,0.1)); }
 
-/* --- 10. MEDIA QUERIES --- */
-@media (max-width: 992px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .carousel-wrapper { padding: 0 40px; }
-  .projects-carousel .project-card { min-width: calc(100% - 40px); }
-}
+/* --- AJUSTES PARA MÓVIL (Media Queries) --- */
 
 @media (max-width: 768px) {
-  .container { max-width: 90%; padding: 0 20px; }
-  .hero-content h1 { font-size: 1.8rem; }
-  .hero-name { font-size: 2.8rem !important; }
-  .hero-buttons { flex-direction: column; width: 100%; align-items: center; }
-  .btn-hero { width: 200px; justify-content: center; }
-  .project-card { min-width: 85%; min-height: 480px; }
-  .project-image { height: 180px; }
-  .project-content { padding: 20px; }
+  /* 1. Corregir el contenedor para que aproveche el ancho */
+  .container {
+    max-width: 95%;
+    padding: 0 15px;
+  }
+
+  /* 2. NAVBAR: Convertir en menú lateral */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary);
+    transition: 0.3s;
+  }
+
+  .navbar ul {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Escondido a la derecha */
+    flex-direction: column;
+    background: var(--bg-light);
+    width: 70%;
+    height: 100vh;
+    padding: 100px 40px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: 0.4s ease-in-out;
+    gap: 1.5rem;
+    z-index: 1000;
+  }
+
+  /* Clase para mostrar el menú con JS */
+  .navbar ul.active {
+    right: 0;
+  }
+
+  /* 3. HERO: Ajustar textos grandes */
+  .hero-name {
+    font-size: 2.2rem !important; /* Evita que el nombre se corte */
+  }
+
+  /* 4. CARRUSEL: El problema de los 400px fijos */
+  .projects-carousel {
+    width: 100%; /* Ocupa todo el ancho */
+    gap: 15px;
+  }
+
+  .project-card {
+    flex: 0 0 85%; /* Muestra una tarjeta casi entera y un trozo de la siguiente */
+    min-width: 85%;
+    min-height: auto; /* Que crezca según contenido */
+  }
+
+  .carousel-wrapper {
+    padding: 0; /* Quitamos padding lateral para que las flechas no estorben tanto */
+  }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+    opacity: 0.8;
+  }
+
+  /* 5. SKILLS: Asegurar 2 columnas en móviles pequeños */
+  .skills-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
-
